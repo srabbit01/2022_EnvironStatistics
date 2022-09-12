@@ -6,29 +6,40 @@ from matplotlib import pyplot as plt # 그래프 모듈
 '''
 3-3. The strength of a concrete specimen.
 '''
+# Continuous(연속형)
 
 '''
 3-4. The number of convenience options selected by an
 automobile buyer.
 '''
+# Discrete(이산형)
 
 '''
 3-11. If P(XA)  0.4, and P(XB)  0.6 and the intersection
 of sets A and B is empty,
-(a) Are sets A and B mutually exclusive?
-(b) Find P(X  A).
-(c) Find P(X  B).
-(d) Find P(X  A  B).
+(a) Are sets A and B mutually exclusive? (상호배타적)
+# YES (A와 B의 교집합은 0)
+(b) Find P(X  A'). = 1 - 0.4 = 0.6
+(c) Find P(X  B). = 1 - 0.6 = 0.4
+(d) Find P(X  A  B). = 0.6 + 0.4 = 1
 '''
 
 '''
-3-13. Let P(X  15)  0.3, P(15  X  24)  0.6, and
-P(X  20)  0.5.
-(a) Find P(X  15).
-(b) Find P(X  24).
-(c) Find P(15  X  20).
-(d) If P(18  X  24)  0.4, find P(X  18).
+3-13. Let P(X < 15) = 0.3, P(15 < X < 24) = 0.6, and
+P(X > 20) = 0.5.
+(a) Find P(X > 15).
+(b) Find P(X < 24).
+(c) Find P(15 < X < 20).
+(d) If P(18 < X < 24) = 0.4, find P(X < 18).
 ''' 
+# a)
+1-0.3 # 0.7
+# b)
+0.3+0.6 # 0.9
+# c)
+0.3+0.6-0.5 # 0.4
+# d)
+0.3+0.6-0.4 # 0.5
 
 '''
 3-14. Suppose that an ink cartridge is classified as being
@@ -39,23 +50,33 @@ underfilled?
 (b) What is the probability that a cartridge is either overfilled
 or underfilled?
 '''
+# a) not underfilled
+1-0.15 # 0.85
+# b) overfilled or underfilled
+0.40+0.15 # 0.55
 
 '''
 3-15. Let X denote the life of a semiconductor laser (in
 hours) with the following probabilities:
-and
+P(X < 5000) = 0.05 and P(X > 7000) = 0.45.
 (a) What is the probability that the life is less than or equal to
 7000 hours?
 (b) What is the probability that the life is greater than 5000
 hours?
-(c) What is P(5000  X  7000)?
+(c) What is P(5000 < X < 7000)?
 '''
+# a) P(X<7000)
+1-0.45 # 0.55
+# b) P(X>5000)
+1-0.05 # 0.95
+# c)
+0.45-0.05 # 0.40
 
 '''
 3-16. Let E1 denote the event that a structural component
 fails during a test and E2 denote the event that the component
-shows some strain but does not fail. Given P(E1)  0.15 and
-P(E2)  0.30,
+shows some strain but does not fail. Given P(E1) = 0.15 and
+P(E2) = 0.30,
 (a) What is the probability that a structural component does
 not fail during a test?
 (b) What is the probability that a component either fails or
@@ -63,27 +84,54 @@ shows strain during a test?
 (c) What is the probability that a component neither fails nor
 shows strain during a test?
 '''
+# a) structial component does not fail
+1-0.15 # 0.85
+# b) component fails or shows
+0.15+0.30 # 0.45
+# c) component not fails or not shows
+1-0.45 # 0.55
 
 '''
 3-18. Let X denote the number of patients who suffer an infection
 within a floor of a hospital per month with the following
 probabilities:
 x 0 1 2 3
-P(X  x) 0.7 0.15 0.1 0.05
+P(X = x) 0.7 0.15 0.1 0.05
 Determine the following probabilities:
 (a) Less than one infection
 (b) More than three infections
 (c) At least one infection
 (d) No infections
 '''
+# a) P(X<1)
+0.7
+# b) P(X>3)
+1-0.7-0.15-0.1-0.05 # 0
+# c) P(X>=1)
+1-0.7 # 0.3
+# d) P(X=0)
+0.7
 
 '''
-3-23. Suppose that f (x)  e(x6) for 6 
- x and f (x)  0 for
-x  6. Determine the following probabilities.
+3-23. Suppose that f (x) = e^(-(x-6)) for 6 < x and f (x) = 0 for
+x <= 6. Determine the following probabilities.
 (a) P(X > 6) (b) P(6 < X < 8)
 (c) P(X < 8) (d) P(X > 8)
 '''
+def func1(x):
+    y = exp(-(x-6))
+    return y
+def func2(x):
+    y_1 = -(x-6)*exp(-(x-6))
+    return y_1
+# a)
+
+# b)
+
+# c)
+
+# d)
+
 
 '''
 3-25. The pdf of the time to failure of an electronic component
